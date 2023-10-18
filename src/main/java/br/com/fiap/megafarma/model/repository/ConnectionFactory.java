@@ -31,12 +31,13 @@ public class ConnectionFactory {
 		Properties prop = new Properties();
 		FileInputStream file = null;
 		try {
-			file = new FileInputStream(".src/main/resources/application.properties");
+			file = new FileInputStream("./src/main/resources/application.properties");
 			prop.load(file);
 			String url = prop.getProperty("datasource.url");
 			String user = prop.getProperty("datasource.username");
 			String password = prop.getProperty("datasource.password");
 			String driver = prop.getProperty("datasource.driver-class-name");
+			System.out.println("" + url + user + password + driver);
 			file.close();
 			if(instance == null) {
 				instance = new ConnectionFactory(url, user, password, driver);
