@@ -1,6 +1,8 @@
+/* VINICIUS GONTIJO SANTOS
+ * RM550657
+ * */
 package br.com.fiap.megafarma.model.repository;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

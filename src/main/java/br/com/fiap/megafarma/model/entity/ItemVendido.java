@@ -1,3 +1,6 @@
+/* VINICIUS GONTIJO SANTOS
+ * RM550657
+ * */
 package br.com.fiap.megafarma.model.entity;
 
 import jakarta.validation.constraints.NotNull;
