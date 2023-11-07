@@ -42,21 +42,20 @@ public class RemedioRepository extends Repository {
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
-			if (rs != null) {
-				Remedio remedio = new Remedio();
-				remedio.setId(rs.getLong("id"));
-				remedio.setNome(rs.getString("nome"));
-				remedio.setPreco(rs.getDouble("preco"));
-				remedio.setDataDeFabricacao(rs.getDate("data_de_fabricacao").toLocalDate());
-				remedio.setDataDeValidade(rs.getDate("data_de_validade").toLocalDate());
-				return remedio;
-			}
+			if (rs.next()) {
+                Remedio remedio = new Remedio();
+                remedio.setId(rs.getLong("id"));
+                remedio.setNome(rs.getString("nome"));
+                remedio.setPreco(rs.getDouble("preco"));
+                remedio.setDataDeFabricacao(rs.getDate("data_de_fabricacao").toLocalDate());
+                remedio.setDataDeValidade(rs.getDate("data_de_validade").toLocalDate());
+                return remedio;
+            }
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			closeConnection();
 		}
-		
 		return null;
 	}
 	
